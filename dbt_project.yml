@@ -7,7 +7,7 @@ version: '1.0.0'
 config-version: 2
 
 # This setting configures which "profile" dbt uses for this project.
-profile: 'snowplow_snowflake'
+profile: 'default'
 
 # These configurations specify where dbt should look for different types of files.
 # The `model-paths` config, for example, states that models in this project can be
@@ -29,6 +29,8 @@ clean-targets:         # directories to be removed by `dbt clean`
 # Full documentation: https://docs.getdbt.com/docs/configuring-models
 vars:
   dbt_demo_project:
+    start_date: "2023-01-01"
+    end_date: "2023-02-01"
 
 
 # In this example config, we tell dbt to build all models in the example/
@@ -36,6 +38,25 @@ vars:
 # files using the `{{ config(...) }}` macro.
 models:
   dbt_demo_project:
-    # Config indicated by + and applies to all files under models/example/
-    example:
-      +materialized: view
+    +materialized: table
+
+seeds:
+  dbt_demo_project:
+    +schema: "source"
+    employees:
+      +column_types:
+        employee_id: integer
+        first_name: varchar
+        last_name: varchar
+        hire_date: date
+        department: varchar
+        salary: integer
+
+    sales:
+      +column_types:
+        date: date
+        customer_id: integer
+        product_id: integer
+        quantity: integer
+        price: float
+        employee_id: integer

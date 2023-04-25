@@ -1,0 +1,22 @@
+version: 2
+
+models:
+  - name: customer
+    description: This is a table that describes customer sales behaviour
+    columns:
+      - name: date
+        description: The date of the customer interaction
+        tests:
+          - not_null
+      - name: customer_id
+        description: The customer identifier
+        tests:
+          - not_null
+      - name: product_id
+        description: The product identifier
+        tests:
+          - not_null
+      - name: quantity
+        description: The amount of products sold
+      - name: sales_amount
+        description: The amount spent by the customer

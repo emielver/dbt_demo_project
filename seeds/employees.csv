@@ -1,0 +1,6 @@
+employee_id,first_name,last_name,hire_date,department,salary
+1,John,Doe,2021-01-01,Sales,60000
+2,Jane,Smith,2021-02-15,Marketing,70000
+3,Bob,Johnson,2021-03-01,Engineering,80000
+4,Alice,Lee,2021-04-15,Sales,75000
+5,Tom,Chen,2021-05-01,Marketing,90000
